@@ -13,3 +13,20 @@
 	* 加载环境变量: `source ~/.bashrc`
 	* 升级Anaconda：`conda update --all`
 
+3. SSH服务:
+	1. 安装
+		* `sudo apt-get install openssh-client`
+		* `sudo apt-get install openssh-server`
+		* 启动:`sudo /etc/init.d/ssh start`
+		* 查看：` ps -e | grep ssh`
+		* IP地址查看：`ifconfig -a`
+	2. 使用
+		* 远程登录：`ssh user@ip`
+		* 复制：`scp -r usr@43.224.34.73:/home/lk   /root`  //将 /home/lk 文件拷贝到本地 /root 
+		* 上传：`scp /root/test.jar   usr@43.224.34.73:/home/lk`
+		* 退出：`exit`
+	
+	3. 错误：
+		* 无法连接时：`sudo vim ~/.ssh/known_hosts`，删除ip地址那行数据
+		* 运行root用户登录：`sudo vim /etc/ssh/sshd_config` PermitRootLogin prohibit-password改成PermitRootLogin yes
+	
