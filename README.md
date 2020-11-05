@@ -22,9 +22,13 @@
 		* IP地址查看：`ifconfig -a`
 	2. 使用
 		* 远程登录：`ssh user@ip`
+		* 指定端口登录： `ssh user@ip -p 端口`
 		* 复制：`scp -r usr@43.224.34.73:/home/lk   /root`  //将 /home/lk 文件拷贝到本地 /root 
 		* 上传：`scp /root/test.jar   usr@43.224.34.73:/home/lk`
 		* 退出：`exit`
+		* 内网映射：
+			1. frp
+			2. 花生壳：https://console.hsk.oray.com/ （当前映射www.sinscry.tech:25319）
 	
 	3. 错误：
 		* 无法连接时：`sudo vim ~/.ssh/known_hosts`，删除ip地址那行数据
