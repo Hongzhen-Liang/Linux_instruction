@@ -1,5 +1,5 @@
 # linux指令
-![Image text](./bg.jpg)
+![Image text](./bg.tif)
 
 
 1. 常规指令
