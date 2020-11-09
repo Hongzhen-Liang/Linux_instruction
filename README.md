@@ -22,6 +22,9 @@
 		* 启动:`sudo /etc/init.d/ssh start`
 		* 查看：` ps -e | grep ssh`
 		* IP地址查看：`ifconfig -a`
+		* 配置设定`sudo vim /etc/ssh/sshd_config`：
+			1. 密码登录：`PasswordAuthentication yes`
+			2. root用户运行：#PermitRootLogin prohibit-password下增加`PermitRootLogin yes`
 	2. 使用
 		* 远程登录：`ssh user@ip`
 		* 指定端口登录： `ssh user@ip -p 端口`
@@ -35,5 +38,4 @@
 	3. 错误：
 		* 无法连接时：`sudo vim ~/.ssh/known_hosts`，删除ip地址那行数据
 		* 运行root用户登录：`sudo vim /etc/ssh/sshd_config` PermitRootLogin prohibit-password改成PermitRootLogin yes
-	
 	
