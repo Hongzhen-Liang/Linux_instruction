@@ -3,6 +3,7 @@
 1. 常规指令
 	* 下载：`wget -P /tmp url`
 	* 删除: `rm -rf 文件名`
+	* 我的阿里云服务器:120.78.209.24
 	
 
 2. 安装Anaconda：
@@ -12,6 +13,7 @@
 	* 安装：`bash /tmp/Anaconda3-2020.07-Linux-x86_64.sh`
 	* 加载环境变量: `source ~/.bashrc`
 	* 升级Anaconda：`conda update --all`
+	* 如果报错：conda: command not found：`sudo vim ~/.bashrc` 在最后一行加上 `export PATH=$PATH:/home/用户名/anaconda3/bin` 加载环境变量`source ~/.bashrc`
 
 3. SSH服务:
 	1. 安装
@@ -33,4 +35,5 @@
 	3. 错误：
 		* 无法连接时：`sudo vim ~/.ssh/known_hosts`，删除ip地址那行数据
 		* 运行root用户登录：`sudo vim /etc/ssh/sshd_config` PermitRootLogin prohibit-password改成PermitRootLogin yes
+	
 	
