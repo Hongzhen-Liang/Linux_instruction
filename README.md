@@ -1,4 +1,6 @@
 # linux指令
+![Image text](./bg.jpg)
+
 
 1. 常规指令
 	* 下载：`wget -P /tmp url`
