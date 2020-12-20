@@ -50,6 +50,7 @@
 	* 重新连接: `screen -r screen编号`
 	* 杀screen: `kill -9 screen编号`
 	* 删除无法使用的screen: `screen -wipe`
+	* There is no screen to be resumed matching 2865：`screen -d 2865`
 	
 5. Java安装
 	* 链接:https://blog.csdn.net/booklijian/article/details/110921554
@@ -57,13 +58,18 @@
 		* `wget https://download.oracle.com/otn-pub/java/jdk/15.0.1+9/51f4f36ad4ef43e39d0dfdbaf6549e32/jdk-15.0.1_linux-x64_bin.tar.gz?AuthParam=1608448595_d554e64ffd6d737ba884fbc714a24acf`
 		*  `tar -xvf jdk-15.0.1_linux-x64_bin.tar.gz`
 	2. 设置环境变量:
-		* `vim /etc/profile`
+		* 所有用户环境:`vim /etc/profile`
 		```
 		JAVA_HOME=/opt/jdk-15.0.1
 		CLASSPATH=.
 		PATH=$JAVA_HOME/bin:$PATH
 		export JAVA_HOME CLASSPATH PATH
 		```
+		* 整个系统环境:`vim /etc/environment`
+		```
+		JAVA_HOME=/opt/jdk-15.0.1
+		```
+		* 只是sudo:` vim /etc/sudoers`
 	3. 激活环境变量:`source /etc/profile`
 	4. 验证环境变量:`echo $JAVA_HOME`
 	5. maven:
