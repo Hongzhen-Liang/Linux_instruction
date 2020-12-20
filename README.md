@@ -8,6 +8,7 @@
 	* 我的阿里云服务器:120.78.209.24
 	* 升级pip: `pip3 install --upgrade pip`
 	* 指定源安装: `pip3 install --index-url https://pypi.douban.com/simple Image`
+	* 查看cpu架构:`uname -m`
 	
 2. 安装Anaconda：
 	* 相关网站教程:https://blog.csdn.net/weixin_44776894/article/details/106159483
@@ -49,3 +50,69 @@
 	* 重新连接: `screen -r screen编号`
 	* 杀screen: `kill -9 screen编号`
 	* 删除无法使用的screen: `screen -wipe`
+	
+5. Java安装
+	* 链接:https://blog.csdn.net/booklijian/article/details/110921554
+	1. 安装jdk15.01:
+		* `wget https://download.oracle.com/otn-pub/java/jdk/15.0.1+9/51f4f36ad4ef43e39d0dfdbaf6549e32/jdk-15.0.1_linux-x64_bin.tar.gz?AuthParam=1608448595_d554e64ffd6d737ba884fbc714a24acf`
+		*  `tar -xvf jdk-15.0.1_linux-x64_bin.tar.gz`
+	2. 设置环境变量:
+		* `vim /etc/profile`
+		```
+		JAVA_HOME=/opt/jdk-15.0.1
+		CLASSPATH=.
+		PATH=$JAVA_HOME/bin:$PATH
+		export JAVA_HOME CLASSPATH PATH
+		```
+	3. 激活环境变量:`source /etc/profile`
+	4. 验证环境变量:`echo $JAVA_HOME`
+	5. maven:
+		1. 安装: `sudo install maven`
+		2. 使用pom.xml: `mvn install`
+		3. 输出可直接执行的jar包:
+			1. pom上设置:
+				```
+				<build>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-compiler-plugin</artifactId>
+							<configuration>
+								<source>15</source>
+								<target>15</target>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jar-plugin</artifactId>
+							<version>3.1.0</version>
+							<configuration>
+								<archive>
+									<manifest>
+										<addClasspath>true</addClasspath>
+										<classpathPrefix>lib/</classpathPrefix>
+										<mainClass>Convertible_bond.AppApplication</mainClass><!--入口类，main-->
+									</manifest>
+								</archive>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.springframework.boot</groupId>
+							<artifactId>spring-boot-maven-plugin</artifactId><!--要通过maven进行打包操作 需要这个插件-->
+							<version>2.3.5.RELEASE</version>
+						</plugin>
+					</plugins>
+				</build>
+				
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.8.1</version>
+					</dependency>
+				</dependencies>
+				```
+			2. 打包出jar包:
+				* 在target中生成:`mvn package`
+				* 执行jar包:`java -jar 包名.jar`
+		
