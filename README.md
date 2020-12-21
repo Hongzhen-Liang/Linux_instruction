@@ -32,6 +32,7 @@
 			2. root用户运行：#PermitRootLogin prohibit-password下增加`PermitRootLogin yes`
 	2. 使用
 		* 远程登录：`ssh user@ip`
+		* 数据库: `mysql -uroot -proot -h192.168.0.333 -P3306`
 		* 指定端口登录： `ssh user@ip -p 端口`
 		* 复制：`scp -r usr@43.224.34.73:/home/lk   /root`  //将 /home/lk 文件拷贝到本地 /root 
 		* 上传：`scp /root/test.jar   usr@43.224.34.73:/home/lk`
@@ -122,4 +123,34 @@
 			2. 打包出jar包:
 				* 在target中生成:`mvn package`
 				* 执行jar包:`java -jar 包名.jar`
+		
+	6. MySql:
+		0. 基础命令:
+			* 重启MySql:`sudo service mysql restart`
+		1. 先进入MySql命令行:
+			* 改密码:`set password for 用户名@localhost = password('新密码');`
+			* 查看所有用户:`SELECT DISTINCT CONCAT('User: ''',user,'''@''',host,''';') AS query FROM mysql.user;`
+			* 创建用户:`CREATE USER '用户名'@'localhost' IDENTIFIED BY '密码';`
+			* 授权访问所有数据库:`grant all privileges on *.* to '用户名'@'localhost';`
+			* 远程登录mysql:
+				* 阿里云服务器中安全组规则需添加3306端口入方向
+				* 设置数据库可以远程登录: `update mysql.user set host = '%' where user = 'root';`
+				* 远程登录mysql:`mysql -h sinscry.space -u root -p`
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
