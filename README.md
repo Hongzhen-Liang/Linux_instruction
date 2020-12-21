@@ -1,6 +1,7 @@
 # linux指令
 ![Image text](./bg.jpg)
 
+* ubuntu子系统路径:`C:\Users\用户ID\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\rootfs`
 
 1. 常规指令
 	* 下载：`wget -P /tmp url`
